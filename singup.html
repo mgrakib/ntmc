@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sing Up | NTMC SUPPORT SYSTEM</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.4/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://kit.fontawesome.com/d64724f41e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body class="bg-[#070D19] p-16">
+
+    <section class="m-10 p-10 max-w-[900px] mx-auto bg-[#0C1427]  ">
+        <div>
+            <h1 class="text-3xl text-[#EEF4FF] font-bold text-center">NTMC SUPPORT SYSTEM REGISTRATION</h1>
+
+            <!-- input elements start  -->
+            <div class="mt-10 w-[70%] mx-auto">
+
+                <!-- user full name name input  start-->
+                <div class="bg-[#494F50] flex items-center text-[#B3B5B5] rounded-r-sm overflow-hidden mb-6">
+                    <span class="w-[20%] border-r flex items-center justify-center py-[15px]" >
+                        <i class="fa-solid fa-user"></i>
+                    </span>
+                    <input id="registatonFullName" type="text" class="w-full bg-transparent outline-none border-0 p-3" placeholder="Full Name">
+                </div>
+                <!-- user full name name input  start-->
+
+
+                <!-- user name input  start-->
+                <div class="bg-[#494F50] flex items-center text-[#B3B5B5] rounded-r-sm overflow-hidden mb-6">
+                    <span class="w-[20%] border-r flex items-center justify-center py-[15px]" >
+                        <i class="fa-solid fa-user"></i>
+                    </span>
+                    <input id="registatonUserName" type="text" class="w-full bg-transparent outline-none border-0 p-3" placeholder="username">
+                </div>
+                <!-- user name input  end-->
+
+                <!-- user password  start-->
+                <div class="bg-[#494F50] flex items-center text-[#B3B5B5] rounded-r-sm overflow-hidden mb-6">
+                    <span class="w-[20%] border-r flex items-center justify-center py-[15px]" >
+                        <i class="fa-solid fa-key"></i>
+                    </span>
+                    <input id="registatonPassword" type="text" class="w-full bg-transparent outline-none border-0 p-3" placeholder="password">
+                </div>
+                <!-- user password  end-->
+
+
+                 <!-- user password  start-->
+                <div class="">
+                    <button id="registationSubmit" class="btn bg-[#2BB3C0] hover:bg-[#17949f] w-full" onclick="registationSubmit()">Registation</button>
+                </div>
+                <!-- user password  end-->
+
+
+            </div>
+            <!-- input elements start  -->
+        </div>
+    </section>
+
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./script/login.js"></script>
+    <script src="./script/singup.js"></script>
+</body>
+</html>
