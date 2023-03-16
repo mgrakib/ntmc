@@ -6,14 +6,17 @@ const registationSubmit = () => {
 	const registatonFullName = getELement("registatonFullName").value;
 	const registatonUserName = getELement("registatonUserName").value;
 	const registatonPassword = getELement("registatonPassword").value;
-	// [{ mgrakibbd: { password: "123" } }, { popy: { password: "123" } }];
 
-	// make an object by input value
-	// const registationInfo = {
-	// 	registatonFullName,
-	// 	registatonUserName,
-	// 	registatonPassword,
-	// };
+	if (!registatonFullName || !registatonUserName || !registatonPassword) {
+		alert("you cant pass empty value");
+		return;
+	}
+
+	getELement("registatonFullName").value = '';
+	getELement("registatonUserName").value = '';
+	getELement("registatonPassword").value = '';
+	
+	
 
 	const registationInfo = {
 		[registatonUserName]: {
@@ -23,16 +26,14 @@ const registationSubmit = () => {
 	};
 
 	// get localstorage value
-	const localStorageValue = JSON.parse(
-		localStorage.getItem("registationInfo")
-	);
+	const localStorageValue = getLocalStorageValue("registationInfo");
 
 	if (localStorageValue) {
 		// check input user name is exist in previous localStorageValue
-		let isExist = localStorageValue.find(
-			ans => ans.registatonUserName == registatonUserName
-		);
+		let isExist = localStorageValue.find(ans => Object.keys(ans)[0] == registatonUserName);
 
+		console.log(isExist);
+		
 		// if exist code stope here
 		if (isExist) {
 			alert("alreay have");
@@ -43,17 +44,21 @@ const registationSubmit = () => {
 			"registationInfo",
 			JSON.stringify([...localStorageValue, registationInfo])
 		);
-	} else {
-		localStorage.setItem(
-			"registationInfo",
-			JSON.stringify([registationInfo])
-		);
+	} else {		
+		setLocalStorageValue("registationInfo", registationInfo);
 	}
 
+	const successfullAlart = getELement("successfullAlart");
+	successfullAlart.classList.remove('hidden');
+	successfullAlart.classList.add('flex');
+	
+	setTimeout(function () {
+		successfullAlart.classList.add("hidden");
+		successfullAlart.classList.remove("flex");
+	}, 3000);
+	
 	// get localstorage value
-	const localStorageValueToLogin = JSON.parse(
-		localStorage.getItem("registationInfo")
-	);
+	const localStorageValueToLogin = getLocalStorageValue("registationInfo");
 	registationInfoArray = [...localStorageValueToLogin];
 }
 

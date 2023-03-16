@@ -12,7 +12,7 @@
 <body class="bg-[#070D19] p-16">
 
     <section class="m-10 p-10 max-w-[900px] mx-auto bg-[#0C1427]  ">
-        <div>
+        <div class="relative">
             <div class="flex  justify-center">
                 <h1 class="text-3xl text-[#EEF4FF] font-bold text-center">NTMC SUPPORT SYSTEM REGISTRATION</h1>
                 <button class="btn btn-primary ml-5" onclick="goToSingIn()">Go to SingIn</button>
@@ -35,7 +35,7 @@
                     <span class="w-[20%] border-r flex items-center justify-center py-[15px]" >
                         <i class="fa-solid fa-user"></i>
                     </span>
-                    <input id="registatonUserName" type="text" class="w-full bg-transparent outline-none border-0 p-3" placeholder="username">
+                    <input id="registatonUserName" type="email" class="w-full bg-transparent outline-none border-0 p-3" placeholder="username">
                 </div>
                 <!-- user name input  end-->
 
@@ -44,7 +44,7 @@
                     <span class="w-[20%] border-r flex items-center justify-center py-[15px]" >
                         <i class="fa-solid fa-key"></i>
                     </span>
-                    <input id="registatonPassword" type="text" class="w-full bg-transparent outline-none border-0 p-3" placeholder="password">
+                    <input id="registatonPassword" type="password" class="w-full bg-transparent outline-none border-0 p-3" placeholder="password">
                 </div>
                 <!-- user password  end-->
 
@@ -58,12 +58,20 @@
 
             </div>
             <!-- input elements start  -->
+            <div id="successfullAlart" class="w-[700px] bg-white h-[400px] absolute -top-6 left-[50%] -translate-x-[50%] rounded-lg hidden items-center p-5">
+                <div class="alert alert-success shadow-lg ">
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    <span>Registation Successfull!! <span class="cursor-pointer underline" onclick="goToSingIn()">go to sing in</span></span>
+                </div>
+                </div>
+            </div>
         </div>
     </section>
 
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="./script/login.js"></script>
+    <script src="./script/utilitys.js"></script>
     <script src="./script/singup.js"></script>
 </body>
 </html>

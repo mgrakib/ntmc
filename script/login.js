@@ -1,10 +1,5 @@
 /** @format */
 
-// getElementById
-const getELement = id => {
-	const element = document.getElementById(id);
-	return element;
-};
 
 const agreeInputCheckBox = () => {
 	const agreeInputCheckBox = getELement("agreeInputCheckBox");
@@ -27,19 +22,19 @@ const loginFuncation = () => {
     getELement("loginPassword").value = '';
 	
     // get localstorage value
-	const localStorageValue = JSON.parse(
-		localStorage.getItem("registationInfo")
-    );
-   
-    const userInfo = localStorageValue.find(
-		user => Object.keys(user)[0] === loginUserName
-	);
+    const localStorageValue = getLocalStorageValue("registationInfo");
     
-
+    let userInfo;
+    if (localStorageValue) {
+        userInfo = localStorageValue.find(
+			user => Object.keys(user)[0] === loginUserName
+		);
+    } 
+    
     if (userInfo) {
         document.getElementById("alartUserId").classList.add("hidden");
 
-        if (userInfo[loginUserName].userPassword != loginPassword) {
+        if (userInfo[loginUserName]?.userPassword != loginPassword) {
 
             document
 				.getElementById("alartUserPassword")
@@ -49,19 +44,16 @@ const loginFuncation = () => {
              document
 					.getElementById("alartUserPassword")
 					.classList.add("hidden");
-            console.log('login successfull');
+            location.href = '../dashboard.html'
             
+            setValue(userInfo); 
         }
         
             
     } else {
         document.getElementById("alartUserId").classList.remove('hidden');
     }
-    
-    
-    
-    
-    
+        
     
 }
 
