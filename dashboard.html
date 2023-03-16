@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sing Up | NTMC SUPPORT SYSTEM</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.4/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://kit.fontawesome.com/d64724f41e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body class="bg-[#060818] p-5">
+
+    <section>
+        <!-- header section start  -->
+        <header class="flex justify-between items-center">
+            <!-- logo and title start  -->
+            <div class="cursor-pointer flex items-center">
+                <div class="w-[50px]">
+                    <img src="./assets/ntmc_logo.png" alt="" class="w-full">
+                </div>
+                <p class="ml-3 text-2xl text-[#BFEFFF] font-bold">NTMC Support System</p>
+            </div>
+            <!-- logo and title  end-->
+
+            <!-- notice and profile start -->
+            <div class="flex items-center gap-4">
+                <div class="w-[40px] h-[40px] hover:bg-[#1F2644] rounded-full text-gray-400 text-xl flex items-center justify-center cursor-pointer transition"><i class="fa-regular fa-bell"></i></div>
+
+                <div id="profileShow" class="flex items-center gap-5 cursor-pointer">
+                    <div class="w-[45px]">
+                    <img src="./assets/ntmc_logo.png" alt="" class="w-full">
+                    </div>
+                    <p class="text-[16px] text-[#668CA8]">welcome, <span id="userDashboardName" class="text-[#24D2D7] font-bold">User Name</span></p>
+                    <span class="text-white ml-3 font-normal text-[12px]">
+                        <i class="fa-solid fa-angle-down"></i>
+                    </span>
+
+                </div>
+            </div>
+            <!-- notice and profile end -->
+        </header>
+        <!-- header section start  -->
+
+        <!-- main section start  -->
+        <main class="py-5">
+            <section class="bg-[#191E3A] py-4 px-7 rounded-md">
+                <ul class="text-[#E5F0FA] flex gap-10">
+                    <li class="border-r pr-10 cursor-pointer">
+                        <span class="mr-2"><i class="fa-solid fa-gauge-high"></i></span>
+                        Dashboard
+                    </li>
+                    <li class="cursor-pointer">
+                        <span class="mr-2"><i class="fa-solid fa-question"></i></span>
+                        FAQ
+                    </li>
+                </ul>
+            </section>
+        </main>
+        <!-- main section end -->
+    </section>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./script/dashboard.js"></script>
+</body>
+</html>

@@ -14,33 +14,47 @@
         <h1 class="text-3xl text-[#EEF4FF] font-bold text-center">NTMC SUPPORT SYSTEM</h1>
 
         <section class="py-10 flex items-center gap-5">
+            <!-- image start -->
             <div class="w-full">
                 <div class="w-[80%]  mx-auto">
                     <img src="./assets/ntmc_logo.png" alt="" class="w-full">
                 </div>
             </div>
+            <!-- image  end-->
 
+            <!-- login option start-->
             <div class="w-full">
+                
                 <div class="w-[100%]">
                     <!-- input section start -->
                     <div class="text-[#B3B5B5] mb-10">
+                        <!-- user id start  -->
                         <div class="bg-[#494F50] mb-4 flex items-center rounded-sm overflow-hidden">
                             
                             <div class="w-[20%] flex items-center justify-center border-r border-[gray] h-[45px]">
                                 <i class="fa-solid fa-user  "></i>
                             </div>
                             
-                            <input type="text" class="w-full bg-transparent outline-none border-0 px-3 py-3" placeholder="Username">
+                            <input id="loginUserName" type="text" class="w-full bg-transparent outline-none border-0 px-3 py-3" placeholder="Username">
+                            
                         </div>
+                        <!-- user id end  -->
 
+                        <!-- user password start  -->
                        <div class="bg-[#494F50]  flex items-center rounded-sm overflow-hidden">
                             
                             <div class="w-[20%] flex items-center justify-center border-r border-[gray] h-[45px]">
                                 <i class="fa-solid fa-key"></i>
                             </div>
                             
-                            <input type="text" class="w-full bg-transparent outline-none border-0 px-3 py-3" placeholder="Password">
+                            <input id="loginPassword" type="text" class="w-full bg-transparent outline-none border-0 px-3 py-3" placeholder="Password">
                         </div>
+                        <!-- user password end -->
+
+                        <span id="alartUserId" class="text-[13px] text-[#FF0000] hidden">The email address or mobile number you entered isn't connected to an account. <span onclick="goToSingUp()" class="cursor-pointer underline">Creat Your Acoount?</span></span>
+
+                        <span id="alartUserPassword" class="text-[13px] text-[#FF0000] hidden">The password you entered isn't connected to an account. <span onclick="forgetPassword()" class="cursor-pointer underline">Forget Your Password?</span></span>
+                        <span></span>
                     </div>
                     <!-- input section end -->
 
@@ -55,7 +69,7 @@
                                 </span>
 
                                 <div class="mt-3 mx-2 flex items-center">
-                                    <span id="checkedSpan"><input  type="checkbox"  class="checkbox rounded-none outline outline-gray-400 w-[15px] h-[15px]" id="agreeInputCheckBox"/></span>
+                                    <span id="checkedSpan"><input  type="checkbox"  class="checkbox rounded-none outline outline-gray-400 w-[15px] h-[15px]" onclick="agreeInputCheckBox()" id="agreeInputCheckBox"/></span>
                                     <span class="ml-4">I agree to the <span class="text-[#e42a34] cursor-pointer">terms and conditions</span></span>
                                 </div>
                              </div>
@@ -65,12 +79,12 @@
 
                     <div id="loginBtnDiv" class="mt-5 hidden">
                         <div>
-                            <button class="btn btn-primary w-full">LOGIN</button>
+                            <button id="loginBtn" class="btn btn-primary w-full" onclick="loginFuncation()">LOGIN</button>
                         </div>                      
                     </div>
                 </div>
             </div>
-
+            <!-- login option end-->
         </section>
         <div>
             <p class="text-center text-sm text-white">© 2018-2023 NTMC. All Rights Reserved | Designed & Developed By Logo</p>
