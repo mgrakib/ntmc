@@ -39,13 +39,16 @@ const registationSubmit = () => {
 			alert("alreay have");
 			return;
 		}
-
-		localStorage.setItem(
-			"registationInfo",
-			JSON.stringify([...localStorageValue, registationInfo])
-		);
+		setLocalStorageValue("registationInfo", [
+			...localStorageValue,
+			registationInfo,
+		]);
+		// localStorage.setItem(
+		// 	"registationInfo",
+		// 	JSON.stringify([...localStorageValue, registationInfo])
+		// );
 	} else {		
-		setLocalStorageValue("registationInfo", registationInfo);
+		setLocalStorageValue("registationInfo", [registationInfo]);
 	}
 
 	const successfullAlart = getELement("successfullAlart");

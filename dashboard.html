@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sing Up | NTMC SUPPORT SYSTEM</title>
+    <title>Dashboard | NTMC SUPPORT SYSTEM</title>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.4/dist/full.css" rel="stylesheet" type="text/css" />
     <script src="https://kit.fontawesome.com/d64724f41e.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styles/style.css">
@@ -65,7 +65,7 @@
                 <div class=" bg-[#0E1726] rounded-md ">
                     <div class="flex items-center justify-between px-5 py-8 border-b border-dashed border-[#3B3F5C]">
                         <h1 class="font-bold text-white">Open</h1>
-                        <button class="bg-[rgb(226,160,63)] w-[100px] h-[35px] text-white px-2 py-1 rounded-sm text-[12px] shadow-[0px_2px_5px_1px_rgba(226,160,63,.4)] relative top-[2px] hover:shadow-none hover:top-0  transition-all duration-300">New Ticket</button>
+                        <button class="bg-[rgb(226,160,63)] w-[100px] h-[35px] text-white px-2 py-1 rounded-sm text-[12px] shadow-[0px_2px_5px_1px_rgba(226,160,63,.4)] relative top-[2px] hover:shadow-none hover:top-0  transition-all duration-300" onclick="goToCreatTicket()">New Ticket</button>
                     </div>
 
                     <div class="py-5">
@@ -200,15 +200,15 @@
                             <thead>
                                 <tr class="py-10 text-[#009688] font-normal border-t border-b  border-[rgba(0,150,135,0.4)]">
                                     <td class="w-[6%] py-2">S/N</td> 
-                                    <td class="w-[10%]">TICKET DATE</td> 
+                                    <td class="w-[8%]">TICKET DATE</td> 
                                     <td class="w-[13%]">TICKET</td> 
                                     <td class="w-[13%]">ISSUED BY</td> 
                                     <td class="w-[10%]">USER NAME</td> 
-                                    <td class="w-[20%]">ORGANIZATION (WINGS)</td> 
-                                    <td class="w-[7%]">PROJECT</td>
-                                    <td class="w-[7%]">PRIORITY</td>
-                                    <td class="w-[7%]">STATUS</td>
-                                    <td class="w-[7%]">ACTION</td>
+                                    <td class="w-[18%]">ORGANIZATION (WINGS)</td> 
+                                    <td class="w-[8%]">PROJECT</td>
+                                    <td class="w-[8%]">PRIORITY</td>
+                                    <td class="w-[8%]">STATUS</td>
+                                    <td class="w-[8%]">ACTION</td>
                                 </tr>
                         </thead>
                           
@@ -246,6 +246,7 @@
     </section>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="./script/utilitys.js"></script>
+    <script src="./script/creatTicket.js"></script>
     <script src="./script/dashboard.js"></script>
 </body>
 </html>
