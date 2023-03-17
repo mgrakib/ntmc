@@ -44,7 +44,8 @@
 
         <!-- main section start  -->
         <main class="py-5">
-            <section class="bg-[#191E3A] py-4 px-7 rounded-md">
+            <!-- faq and dashboard start  -->
+            <section class="bg-[#191E3A] py-4 px-7 rounded-md mb-10">
                 <ul class="text-[#E5F0FA] flex gap-10">
                     <li class="border-r pr-10 cursor-pointer">
                         <span class="mr-2"><i class="fa-solid fa-gauge-high"></i></span>
@@ -56,6 +57,190 @@
                     </li>
                 </ul>
             </section>
+            <!-- faq and dashboard start  -->
+
+            <!-- genaret ticket start  -->
+            <section class="grid grid-cols-1 md:grid-cols-4 gap-5">
+                <!-- open ticket start -->
+                <div class=" bg-[#0E1726] rounded-md ">
+                    <div class="flex items-center justify-between px-5 py-8 border-b border-dashed border-[#3B3F5C]">
+                        <h1 class="font-bold text-white">Open</h1>
+                        <button class="bg-[rgb(226,160,63)] w-[100px] h-[35px] text-white px-2 py-1 rounded-sm text-[12px] shadow-[0px_2px_5px_1px_rgba(226,160,63,.4)] relative top-[2px] hover:shadow-none hover:top-0  transition-all duration-300">New Ticket</button>
+                    </div>
+
+                    <div class="py-5">
+                        <div>
+                            <div class="w-[80px] h-[80px] bg-[#191E3A] rounded-full mx-auto flex items-center justify-center shadow-[0_0_10px_1px_rgba(255,255,255,.2)]">
+                                <p class="w-[70px] h-[70px] bg-[#060818] rounded-full flex items-center justify-center text-[#25D5E4] font-bold text-3xl" id="countOpenTicket">
+                                    0
+                                </p>
+                            </div>
+
+                            <div class="text-center mt-4">
+                                <p class="text-[#00946F] font-bold"><span id="newOpenTicketNum">0</span> new</p>
+                                <p class="text-[#83ABBE]"><span class="text-[#1D8CED]"><span id="highPriorityOpenTicketNum">0</span> Ticket</span> with High priotity</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- open ticket end -->
+
+                 <!-- Answered ticket start -->
+                <div class=" bg-[#0E1726] rounded-md ">
+                    <div class="flex items-center justify-between px-5 py-8 border-b border-dashed border-[#3B3F5C]">
+                        <h1 class="font-bold text-white">Answered</h1>
+                    </div>
+
+                    <div class="py-5">
+                        <div>
+                            <div class="w-[80px] h-[80px] bg-[#191E3A] rounded-full mx-auto flex items-center justify-center shadow-[0_0_10px_1px_rgba(255,255,255,.2)]">
+                                <p class="w-[70px] h-[70px] bg-[#060818] rounded-full flex items-center justify-center text-[#25D5E4] font-bold text-3xl" id="countAnsweredTicket">
+                                    0
+                                </p>
+                            </div>
+
+                            <div class="text-center mt-4">
+                                <p class="text-[#00946F] font-bold"><span id="newAnsweredTicketNum">0</span> new</p>
+                                <p class="text-[#83ABBE]"><span class="text-[#1D8CED]"><span id="highPriorityAnsweredTicketNum">0</span> Ticket</span> with High priotity</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Answered ticket end -->
+
+                 <!-- InProgress ticket start -->
+                <div class=" bg-[#0E1726] rounded-md ">
+                    <div class="flex items-center justify-between px-5 py-8 border-b border-dashed border-[#3B3F5C]">
+                        <h1 class="font-bold text-white">In Progress</h1>
+                    </div>
+
+                    <div class="py-5">
+                        <div>
+                            <div class="w-[80px] h-[80px] bg-[#191E3A] rounded-full mx-auto flex items-center justify-center shadow-[0_0_10px_1px_rgba(255,255,255,.2)]">
+                                <p class="w-[70px] h-[70px] bg-[#060818] rounded-full flex items-center justify-center text-[#25D5E4] font-bold text-3xl" id="countInProgressTicket">
+                                    0
+                                </p>
+                            </div>
+
+                            <div class="text-center mt-4">
+                                <p class="text-[#00946F] font-bold"><span id="newInProgressTicketNum">0</span> new</p>
+                                <p class="text-[#83ABBE]"><span class="text-[#1D8CED]"><span id="highPriorityInProgressTicketNum">0</span> Ticket</span> with High priotity</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- InProgress ticket end -->
+
+                <!-- Close ticket start -->
+                <div class=" bg-[#0E1726] rounded-md ">
+                    <div class="flex items-center justify-between px-5 py-8 border-b border-dashed border-[#3B3F5C]">
+                        <h1 class="font-bold text-white">Close</h1>
+                    </div>
+
+                    <div class="py-5">
+                        <div>
+                            <div class="w-[80px] h-[80px] bg-[#191E3A] rounded-full mx-auto flex items-center justify-center shadow-[0_0_10px_1px_rgba(255,255,255,.2)]">
+                                <p class="w-[70px] h-[70px] bg-[#060818] rounded-full flex items-center justify-center text-[#25D5E4] font-bold text-3xl" id="countCloseTicket">
+                                    0
+                                </p>
+                            </div>
+
+                            <div class="text-center mt-4">
+                                <p class="text-[#00946F] font-bold"><span id="newCloseTicketNum">0</span> new</p>
+                                <p class="text-[#83ABBE]"><span class="text-[#1D8CED]"><span id="highPriorityCloseTicketNum">0</span> Ticket</span> with High priotity</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Close ticket end -->
+            </section>
+            <!-- genaret ticket end -->
+
+
+            <!-- show all tickets start -->
+            <section class="p-5 bg-[#0E1726] mt-10">
+                <!-- search sectin start  -->
+                <div class="flex justify-between items-center">
+                    <!-- number of Results start-->
+                    <div class="flex items-center gap-3">
+                        <p class="text-[#7183A8]">Results :</p>
+                        <div class="relative">
+                           
+
+                            <select name="" id="numberOfResult" class="p-3 rounded-md w-[80px] bg-[#1B2E4B] text-[#079688] outline-none ">
+                                <option value="10">10</option>
+                                <option value="50">50</option>
+                                <option value="100">100</option>
+                                <option value="1000">1,000</option>
+                                
+                            </select>
+                             <label for="numberOfResult" class="absolute text-white right-2 top-[50%] -translate-y-1/2 "><i class="fa-solid fa-angle-down"></i></label>
+                        </div>
+                    </div>
+                    <!-- number of Results end -->
+
+                    <div>
+                        <div class="w-[150px] bg-[#1B2E4B] flex items-center rounded-md overflow-hidden text-[#D3D3D3]">
+                            <input type="text" class="w-[80%] py-2 px-3 outline-none border-0 bg-transparent" placeholder="Search...">
+                            <span class=""><i class="fa-solid fa-magnifying-glass"></i></span>
+                        </div>
+                    </div>
+                </div>
+                <!-- search sectin end -->
+
+                <!-- all results show start -->
+                <div class="my-4">
+                    <div class="overflow-x-auto">
+                        <table class=" min-w-[1260px] text-center">
+                           
+                            <thead>
+                                <tr class="py-10 text-[#009688] font-normal border-t border-b  border-[rgba(0,150,135,0.4)]">
+                                    <td class="w-[6%] py-2">S/N</td> 
+                                    <td class="w-[10%]">TICKET DATE</td> 
+                                    <td class="w-[13%]">TICKET</td> 
+                                    <td class="w-[13%]">ISSUED BY</td> 
+                                    <td class="w-[10%]">USER NAME</td> 
+                                    <td class="w-[20%]">ORGANIZATION (WINGS)</td> 
+                                    <td class="w-[7%]">PROJECT</td>
+                                    <td class="w-[7%]">PRIORITY</td>
+                                    <td class="w-[7%]">STATUS</td>
+                                    <td class="w-[7%]">ACTION</td>
+                                </tr>
+                        </thead>
+                          
+                            <tbody id="allTicketsTbody" class="text-center">
+                                <!-- <tr class="py-10  text-white">
+                                    <td >1</td> 
+                                    <td>17/03/2023</td> 
+                                    <td>Date and time Modify</td> 
+                                    <td>Md. Golam Rakib</td> 
+                                    <td>mgrakibbd</td> 
+                                    <td class="py-3">National Telicomination and Monitoring Center</td> 
+                                    <td>PIDS</td>
+                                    <td>High</td>
+                                    <td>Active</td>
+                                    <td>close</td>
+                                </tr> -->
+                                
+                                 <tr id="noDataMessage" class="">
+                                    <td colspan="10" class="pt-7 pb-4"><p class="text-center text-[#656A86]">No data available in table</p>  </td>
+                                 </tr>
+                            </tbody>
+                            
+                           
+                         
+                        </table>
+                        
+                       
+                        </div>
+                </div>
+                <!-- all results show end -->
+            </section>
+            <!-- show all tickets end -->
         </main>
         <!-- main section end -->
     </section>

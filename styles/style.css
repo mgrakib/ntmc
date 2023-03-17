@@ -1,0 +1,8 @@
+#numberOfResult {
+    appearance: none;
+    position: relative;
+}
+
+#allTicketsTbody  td {
+    border-bottom: 1px solid rgba(0, 150, 135, 0.4);
+}
