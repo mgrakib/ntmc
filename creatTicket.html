@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sing Up | NTMC SUPPORT SYSTEM</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.4/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://kit.fontawesome.com/d64724f41e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body class="bg-[#060818] p-5" onload="getUserData()">
+
+    <section>
+        <!-- header section start  -->
+        <header class="flex justify-between items-center">
+            <!-- logo and title start  -->
+            <div class="cursor-pointer flex items-center">
+                <div class="w-[50px]">
+                    <img src="./assets/ntmc_logo.png" alt="" class="w-full">
+                </div>
+                <p class="ml-3 text-2xl text-[#BFEFFF] font-bold">NTMC Support System</p>
+            </div>
+            <!-- logo and title  end-->
+
+            <!-- notice and profile start -->
+            <div class="flex items-center gap-4">
+                <div class="w-[40px] h-[40px] hover:bg-[#1F2644] rounded-full text-gray-400 text-xl flex items-center justify-center cursor-pointer transition"><i class="fa-regular fa-bell"></i></div>
+
+                <div id="profileShow" class="flex items-center gap-5 cursor-pointer">
+                    <div class="w-[45px]">
+                    <img src="./assets/ntmc_logo.png" alt="" class="w-full">
+                    </div>
+                    <p class="text-[16px] text-[#668CA8]">welcome, <span id="userDashboardName" class="text-[#24D2D7] font-bold">User Name</span></p>
+                    <span class="text-white ml-3 font-normal text-[12px]">
+                        <i class="fa-solid fa-angle-down"></i>
+                    </span>
+
+                </div>
+            </div>
+            <!-- notice and profile end -->
+        </header>
+        <!-- header section start  -->
+
+        <!-- main section start  -->
+        <main class="py-5">
+            <!-- faq and dashboard start  -->
+            <section class="bg-[#191E3A] py-4 px-7 rounded-md mb-10">
+                <ul class="text-[#E5F0FA] flex gap-10">
+                    <li class="border-r pr-10 cursor-pointer">
+                        <span class="mr-2"><i class="fa-solid fa-gauge-high"></i></span>
+                        Dashboard
+                    </li>
+                    <li class="cursor-pointer">
+                        <span class="mr-2"><i class="fa-solid fa-question"></i></span>
+                        FAQ
+                    </li>
+                </ul>
+            </section>
+            <!-- faq and dashboard start  -->
+
+           <!-- genaret ticket start -->
+           <section class="p-5 bg-[#0E1726] rounded-md">
+                <div >
+                    <!-- creat new ticket  -->
+                    <p class="text-white text-xl">Create a New Ticket</p>
+
+                    <!-- select priority and project  -->
+                    <div class="py-10 flex items-center justify-between ">
+                        <div class="w-[49%]">
+                            <p class="text-[#8389A5]">System Name :</p>
+                            <select name="" id="" class="w-full bg-[#1B2E4B] text-[#2196F3] px-4 py-3 rounded-md mt-3 outline-none border-0">
+                                <option value="Choose" selected>Choose...</option>
+                                <option value="PIDS">PIDS</option>
+                            </select>
+                        </div>
+
+                        <div class="w-[49%]">
+                            <p class="text-[#8389A5]">Priority :</p>
+                            <select name="" id="" class="w-full bg-[#1B2E4B] text-[#2196F3] px-4 py-3 rounded-md mt-3 outline-none border-0">
+                                <option value="Choose" selected>Choose...</option>
+                                <option value="High">High</option>
+                                <option value="Medium">Medium</option>
+                                <option value="Low">Low</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- select priority and project  end-->
+
+                    <!-- ticket subject start  -->
+                    <div class="pb-10">
+                        <p  class="text-[#8389A5]">Ticket Subject:</p>
+
+                        <div class="flex items-center gap-5 mt-3">
+                            <div class="flex-1">
+                                <input type="text" class="w-full px-6 py-3  bg-[#1B2E4B] outline-none border-0 text-[#2196F3] rounded-md" >
+                            </div>
+                            
+                            <div class="w-[60px] bg-[rgb(33,150,243)] rounded-md overflow-hidden flex items-center justify-center shadow-[0_5px_4px_0px_rgba(33,150,243,.5)] relative top-[2px] hover:top-0 hover:shadow-none transition-all duration-500">
+                                <button class="py-2 text-white">
+                                    <i class="fa-solid fa-eye"></i>
+                                </button>
+                            </div>
+                           
+                        </div>
+                        
+                    </div>
+                    <!-- ticket subject end -->
+
+
+                    <!-- description start  -->
+                    <div class="pb-10">
+                        <p  class="text-[#8389A5]">description:</p>
+
+                        <div class=" mt-3">
+                            <div class=" w-full bg-white">
+                                <div class="p-5 border-b">
+
+                                </div>
+                                <div class="p-5 border-b">
+                                    <textarea name="" id="" class="w-full border-0 outline-none h-[175px]"></textarea>
+                                </div>
+                                <div class="px-5 py-1 ">
+                                    <span>body p</span>
+                                </div>
+                            </div>
+                           
+                        </div>
+                        
+                    </div>
+                    <!-- description end -->
+
+                    <!-- File upload start  -->
+                    <div >
+                        <p class="px-10 text-white text-xl font-bold">File Upload</p>
+
+                        <div class=" mt-3 px-10 py-3 shadow-[1px_3px_5px_1px_rgba(0,0,0,.5)]">
+                            <p class="text-[#048059]">Screenshot Attachment (You can attach multiple image file at a time) x</p>
+
+                            <label for="ssInputElement" class="mt-3 w-full bg-[#1B2E4B] flex items-center justify-between cursor-pointer text-[#0C676C] pl-2 rounded-md overflow-hidden active:outline">
+                                <input id="ssInputElement" type="file" class="hidden">
+                                <span>Choose file...</span>
+                                <span class="w-[100px] bg-[#183851] py-2 flex items-center justify-center">Browse</span>
+
+                            </label>
+
+                            <div class="py-16">
+                                <div class="w-[40%] mx-auto">
+                                    <img src="./assets/download.svg" alt="" class="w-full">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- File upload end -->
+                </div>
+           </section>
+           <!-- genaret ticket end -->
+        </main>
+        <!-- main section end -->
+    </section>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./script/utilitys.js"></script>
+    <script src="./script/dashboard.js"></script>
+</body>
+</html>
