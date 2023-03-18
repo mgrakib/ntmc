@@ -24,19 +24,39 @@
             <!-- logo and title  end-->
 
             <!-- notice and profile start -->
-            <div class="flex items-center gap-4">
+            <div class="flex items-center gap-4 relative">
                 <div class="w-[40px] h-[40px] hover:bg-[#1F2644] rounded-full text-gray-400 text-xl flex items-center justify-center cursor-pointer transition"><i class="fa-regular fa-bell"></i></div>
 
-                <div id="profileShow" class="flex items-center gap-5 cursor-pointer">
-                    <div class="w-[45px]">
-                    <img src="./assets/ntmc_logo.png" alt="" class="w-full">
+                <label for="logOutModal">
+                    <div id="profileShow" class="flex items-center gap-5 cursor-pointer " for="logOutModal">
+                        <div class="w-[45px]">
+                        <img src="./assets/ntmc_logo.png" alt="" class="w-full">
+                        </div>
+                        <p class="text-[16px] text-[#668CA8]">welcome, <span id="userDashboardName" class="text-[#24D2D7] font-bold">User Name</span></p>
+                        <span class="text-white ml-3 font-normal text-[12px]">
+                            <i class="fa-solid fa-angle-down"></i>
+                        </span>
                     </div>
-                    <p class="text-[16px] text-[#668CA8]">welcome, <span id="userDashboardName" class="text-[#24D2D7] font-bold">User Name</span></p>
-                    <span class="text-white ml-3 font-normal text-[12px]">
-                        <i class="fa-solid fa-angle-down"></i>
-                    </span>
+                </label>
 
+
+                <!-- The button to open modal -->
+                
+
+                
+                <input  type="checkbox" id="logOutModal" class="modal-toggle" />
+                <label for="logOutModal" class="modal cursor-pointer ">
+                <label class="modal-box  w-[150px] h-[120px] absolute right-7 top-[60px] bg-[#1F2644] flex justify-center items-center" for="">
+                    <button onclick="logOutUser()" class="bg-red-600 py-2 px-3 rounded-md text-white">Log out</button>
+                </label>
+                </label>
+
+
+                <!-- logout btn start -->
+                <div id="logoutBtn" class="w-[150px] h-[120px] bg-[rgb(6,8,24)] shadow-[0_0px_5px_0px_rgba(255,255,255,.2)] absolute top-12 right-0 rounded-lg flex items-center justify-center hidden">
+                        <button class="bg-red-600 py-2 px-3 rounded-md text-white">Log Out</button>
                 </div>
+                <!-- logout btn start -->
             </div>
             <!-- notice and profile end -->
         </header>

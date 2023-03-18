@@ -15,6 +15,30 @@ const setValue = (value) => {
     setLocalStorageValue("userInfo", [value]);
 }
 
+// count total number of array 
+const totalCount = (array, proparty, value) => {
+	const totalCount = array.filter(ticket => ticket[proparty] === value);
+	return totalCount;
+};
+
+// show total open ticket 
+function showOpenNumber(openArray) {
+    const newOpenTicketNum = getELement("newOpenTicketNum");
+    const countOpenTicket = getELement("countOpenTicket");
+    const highPriorityOpenTicketNum = getELement("highPriorityOpenTicketNum");
+
+    // get toalheight priority array 
+    const totalHeighPriority = totalCount(openArray, 'priority', 'High');
+    
+    
+    countOpenTicket.innerText = openArray.length ? openArray.length : "0";
+    newOpenTicketNum.innerText = openArray.length ? openArray.length : '0';
+    highPriorityOpenTicketNum.innerText = totalHeighPriority.length
+		? totalHeighPriority.length
+		: "0";
+
+}
+
 // display all ticket in table
 const displayTickets = () =>{
     const allTickets = getLocalStorageValue('ticket');
@@ -22,9 +46,10 @@ const displayTickets = () =>{
         noDataMessage.classList.add("hidden");
         const allTicketsTbody = getELement("allTicketsTbody");
 
+        // set array to open array to show open ticket 
+        openArray = allTickets.filter(ticket => ticket.status === 'Open');
+        showOpenNumber(openArray);
         allTickets.forEach(ticket => {
-            console.log(ticket);
-            
             const {
                 countTic,
                 ticketIssueTime,
@@ -64,6 +89,7 @@ const getUserData = () => {
         const userDashboardName = getELement("userDashboardName");
         userDashboardName.innerText = getUserInfo[0][key].userFullName;     
         userInfo = [...getUserInfo];
+ 
     }
     // console.log(getUserInfo[0][key].userFullName);
     
@@ -74,4 +100,24 @@ const getUserData = () => {
 
 const goToCreatTicket = () => {
     location.href = '../creatTicket.html'
+}
+
+
+const showLogoutBtn = () => {
+    const logoutBtn = getELement("logoutBtn");
+
+    // logoutBtn.classList.remove('hidden')
+    if (logoutBtn.classList === "hidden") {
+        console.log(true);
+        
+    } else {
+        console.log(false);
+        
+    }
+}
+
+
+const logOutUser = () => {
+    removeLocalStrageValue("userInfo");
+    location.replace('../login.html');
 }
