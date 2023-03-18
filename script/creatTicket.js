@@ -7,20 +7,20 @@ const creatTicket = () => {
 	const ticketSubject = getELement("ticketSubject").value;
 	const ticketDescription = getELement("ticketDescription").value;
     const ticketIssueTime = nowDate.toLocaleDateString();
-	const organizationName = "National Telecommunication and Monitoring Center";
+	const organizationName = "Police Bureau of Investigation";
 	const userId = Object.keys(userInfo[0])[0];
 	const userName = userInfo[0][userId].userFullName;
 
 	let countTic = 0;
 	let creatTicketToLocalStorage = getLocalStorageValue("ticket");
-	if (creatTicketToLocalStorage) {
-		countTic = creatTicketToLocalStorage.length + 1;
-	} else {
-		countTic = 1;
-	}
+	// if (creatTicketToLocalStorage) {
+	// 	countTic = creatTicketToLocalStorage.length + 1;
+	// } else {
+	// 	countTic = 1;
+	// }
 	
     const ticketObject = {
-        countTic,
+        // countTic,
 		userId,
 		userName,
 		projectName,
@@ -37,7 +37,7 @@ const creatTicket = () => {
     if (creatTicketToLocalStorage) {
        localStorage.setItem(
 			"ticket",
-			JSON.stringify([...creatTicketToLocalStorage, ticketObject])
+			JSON.stringify([ticketObject, ...creatTicketToLocalStorage ])
 		);
         
      

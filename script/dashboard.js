@@ -49,9 +49,9 @@ const displayTickets = () =>{
         // set array to open array to show open ticket 
         openArray = allTickets.filter(ticket => ticket.status === 'Open');
         showOpenNumber(openArray);
+        let count = 1;
         allTickets.forEach(ticket => {
             const {
-                countTic,
                 ticketIssueTime,
                 ticketSubject,
                 userName,
@@ -64,7 +64,7 @@ const displayTickets = () =>{
 				
 			} = ticket;
             allTicketsTbody.innerHTML += `<tr class="py-10  text-white">
-                                    <td >${countTic}</td> 
+                                    <td >${count}</td> 
                                     <td>${ticketIssueTime}</td> 
                                     <td>${ticketSubject}</td> 
                                     <td>${userName}</td>  
@@ -73,8 +73,10 @@ const displayTickets = () =>{
                                     <td>${projectName}</td> 
                                     <td>${priority}</td> 
                                     <td>${status}</td> 
-                                    <td><i onclick='action(${countTic})' class='cursor-pointer fa-regular fa-pen-to-square'></i></td> 
+                                    <td><i onclick='action(${count})' class='cursor-pointer fa-regular fa-pen-to-square'></i></td> 
                                     </tr>`;
+            count++;
+            
         });
         
     } else {
