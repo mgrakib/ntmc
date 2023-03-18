@@ -62,6 +62,17 @@ function showOpenNumber(openArray) {
 	);
 }
 
+// show total answered 
+function showAnsweredNumber(answeredArray) {
+    setValueToTotalNumberOfTicket(
+		answeredArray,
+		"countAnsweredTicket",
+		"newAnsweredTicketNum",
+		"highPriorityAnsweredTicketNum"
+	);
+}
+
+
 // show total in progress 
 function showInProgressNumber(inProgressArray) {
 	setValueToTotalNumberOfTicket(
@@ -72,6 +83,17 @@ function showInProgressNumber(inProgressArray) {
 		"High"
 	);
 }
+// show total Close
+function showCloseNumber(CloseArray) {
+	setValueToTotalNumberOfTicket(
+		CloseArray,
+		"countCloseTicket",
+		"newCloseTicketNum",
+		"highPriorityCloseTicketNum",
+		"High"
+	);
+}
+
 
 
 // display all ticket in table
@@ -85,11 +107,21 @@ const displayTickets = () =>{
         openArray = allTickets.filter(ticket => ticket.status === 'Open');
         showOpenNumber(openArray);
 
-        // set array to in progress array to show inprogress ticket
+         // set array answeredArray array to show inprogress ticket
         answeredArray = allTickets.filter(
+			ticket => ticket.status === "Answered"
+        );
+        showAnsweredNumber(answeredArray);
+
+        // set array to inProgressArray array to show inprogress ticket
+        inProgressArray = allTickets.filter(
 			ticket => ticket.status === "In Progress"
         );
-        showInProgressNumber(answeredArray);
+        showInProgressNumber(inProgressArray);
+
+        // set array to CloseArray array to show Close ticket
+        closeArray = allTickets.filter(ticket => ticket.status === "Close");
+        showCloseNumber(closeArray);
 
 
         let count = 1;
@@ -228,5 +260,5 @@ const closeTicket = () => {
 
 // answerTicket set
 const answerTicket = () => {
-    changeStatusValue('Answered');
+    changeStatusValue("Answered");
 }
