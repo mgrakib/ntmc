@@ -13,14 +13,14 @@ const creatTicket = () => {
 
 	let countTic = 0;
 	let creatTicketToLocalStorage = getLocalStorageValue("ticket");
-	// if (creatTicketToLocalStorage) {
-	// 	countTic = creatTicketToLocalStorage.length + 1;
-	// } else {
-	// 	countTic = 1;
-	// }
+	if (creatTicketToLocalStorage) {
+		countTic = creatTicketToLocalStorage.length + 1;
+	} else {
+		countTic = 1;
+	}
 	
     const ticketObject = {
-        // countTic,
+        countTic,
 		userId,
 		userName,
 		projectName,

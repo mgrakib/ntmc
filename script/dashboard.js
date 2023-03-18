@@ -45,35 +45,35 @@ const displayTickets = () =>{
     if (allTickets) {
         noDataMessage.classList.add("hidden");
         const allTicketsTbody = getELement("allTicketsTbody");
-
+        allTicketsTbody.innerHTML = '';
         // set array to open array to show open ticket 
         openArray = allTickets.filter(ticket => ticket.status === 'Open');
         showOpenNumber(openArray);
         let count = 1;
         allTickets.forEach(ticket => {
             const {
-                ticketIssueTime,
-                ticketSubject,
-                userName,
-                userId,
-                organizationName,
+				ticketIssueTime,
+				ticketSubject,
+				userName,
+				userId,
+				organizationName,
 				projectName,
 				priority,
 				status,
 				ticketDescription,
-				
+				countTic,
 			} = ticket;
             allTicketsTbody.innerHTML += `<tr class="py-10  text-white">
-                                    <td >${count}</td> 
+                                    <td>${count}</td> 
                                     <td>${ticketIssueTime}</td> 
                                     <td>${ticketSubject}</td> 
                                     <td>${userName}</td>  
                                     <td>${userId}</td>  
-                                    <td class=''>${organizationName}</td>  
+                                    <td class='py-3'>${organizationName}</td>  
                                     <td>${projectName}</td> 
                                     <td>${priority}</td> 
                                     <td>${status}</td> 
-                                    <td><label for="ticketActionModal"><i for="ticketActionModal" onclick='action(${count})' class='cursor-pointer fa-regular fa-pen-to-square'></i></label></td> 
+                                    <td><label for="ticketActionModal"><i for="ticketActionModal" onclick='actionContainerOpen(${countTic})' class='cursor-pointer fa-regular fa-pen-to-square'></i></label></td> 
                                     </tr>`;
             count++;
             
@@ -84,6 +84,7 @@ const displayTickets = () =>{
     }
 }
 
+// get data from localStorageValue
 const getUserData = () => {
     getUserInfo = getLocalStorageValue("userInfo");
     if (getUserInfo) {
@@ -100,26 +101,77 @@ const getUserData = () => {
     
 }
 
+// got to ticket creat 
 const goToCreatTicket = () => {
     location.href = '../creatTicket.html'
 }
 
 
-const showLogoutBtn = () => {
-    const logoutBtn = getELement("logoutBtn");
 
-    // logoutBtn.classList.remove('hidden')
-    if (logoutBtn.classList === "hidden") {
-        console.log(true);
-        
-    } else {
-        console.log(false);
-        
-    }
-}
-
-
+// logout function
 const logOutUser = () => {
     removeLocalStrageValue("userInfo");
     location.replace('../login.html');
 }
+
+
+const actionUserInfo = [];
+
+// actionOpen
+const actionContainerOpen = countTic => {
+	
+	const actionContainer = getELement("actionContainer");
+	actionContainer.classList.remove("hidden");
+	const allTickets = getLocalStorageValue("ticket");
+
+	const clickedTicket = allTickets.find(ticket => ticket.countTic === countTic
+);
+    
+    actionUserInfo.push(clickedTicket);
+
+    // set actionTicketStatus value
+    const actionTicketStatus = getELement("actionTicketStatus");
+    actionTicketStatus.innerText = clickedTicket.status;
+
+    // set actionTicketPriority  value 
+    const actionTicketPriority = getELement("actionTicketPriority");
+    actionTicketPriority.innerText = clickedTicket.priority;
+
+    // set actionTicketDescription  value 
+    const actionTicketDescription = getELement("actionTicketDescription");
+    actionTicketDescription.innerText = clickedTicket.ticketDescription;
+};
+
+
+
+// action close 
+const actionContainerClose = () => {
+    const actionContainer = getELement("actionContainer");
+	actionContainer.classList.add("hidden");
+}
+
+// inProgressTicket set 
+const inProgressTicket = () => {
+    const allTickets = getLocalStorageValue('ticket');
+    console.log(allTickets);
+    let getRestArray = allTickets.filter(
+		ticket => ticket.countTic !== actionUserInfo[0].countTic
+	);
+    actionUserInfo[0].status = "In Progress";
+    console.log(actionUserInfo[0]);
+
+    console.log(getRestArray);
+
+    getRestArray = [...getRestArray, actionUserInfo[0]];
+
+    getRestArray.sort((a, b) => {
+        return a.countTic < b.countTic ? 1 : -1;
+    })
+    
+    setLocalStorageValue("ticket", getRestArray);
+    
+    location.replace('../dashboard.html')
+
+
+}
+

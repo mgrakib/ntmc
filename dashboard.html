@@ -9,7 +9,7 @@
     <script src="https://kit.fontawesome.com/d64724f41e.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styles/style.css">
 </head>
-<body class="bg-[#060818] p-5" onload="getUserData()">
+<body class="bg-[#060818] p-5 relative" onload="getUserData()">
 
     <section>
         <!-- header section start  -->
@@ -53,7 +53,7 @@
 
 
                 <!-- logout btn start -->
-                <div id="logoutBtn" class="w-[150px] h-[120px] bg-[rgb(6,8,24)] shadow-[0_0px_5px_0px_rgba(255,255,255,.2)] absolute top-12 right-0 rounded-lg flex items-center justify-center hidden">
+                <div id="logoutBtn" class="w-[150px] h-[120px] bg-[rgb(6,8,24)] shadow-[0_0px_5px_0px_rgba(255,255,255,.2)] absolute top-12 right-0 rounded-lg  items-center justify-center hidden">
                         <button class="bg-red-600 py-2 px-3 rounded-md text-white">Log Out</button>
                 </div>
                 <!-- logout btn start -->
@@ -264,79 +264,67 @@
         </main>
         <!-- main section end -->
 
+         <!-- ticket action start  -->
+        <section id="actionContainer" class="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 bg-red-500 ">
+             
+            <!-- ticket action modal start  -->
+            <div class="w-[900px] p-10 rounded-md bg-[#060818] shadow-[0_0_10px_10px_rgba(0,0,0,.7)]">
+                <h1 class="text-3xl text-white font-bold text-center">PBI Support HUB</h1>
+                <p class="text-center text-2xl text-white my-3">Ticket No: 0<span>1</span></p>
 
-        <!-- ticket action start  -->
-        <section>
-            <!-- The button to open modal -->
-            
-
-             <!-- Put this part before -->
-            <input type="checkbox" id="ticketActionModal" class="modal-toggle" />
-            <div class="modal w-full">
-            <!-- <div class=" w-[900px] bg-red-500">
-                <div>
-
-                </div>
-
-                <div class="modal-action">
-                <label for="ticketActionModal" class="btn">Yay!</label>
-                </div>
-            </div> -->
-            
-                <!-- ticket action start  -->
-        <div class="w-[900px] p-10 rounded-md bg-[#060818] shadow-[0_0_10px_10px_rgba(0,0,0,.7)] relative">
-            <h1 class="text-3xl text-white font-bold text-center">PBI Support HUB</h1>
-            <p class="text-center text-2xl text-white my-3">Ticket No: 0<span>1</span></p>
-
-            <div class="py-10">
-                <!-- priority and statas div start  -->
-                <div  class="flex justify-between items-center text-[#009688]">
-                    <p>Status: <span class="font-bold text-red-600">Open</span></p>
-                    <p>Priority: <span class="font-bold text-yellow-500">High</span></p>
-                </div>
-                <!-- priority and statas div start  -->
-
-                <!-- ticket details  -->
-                <div class="my-5 text-white">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero, aperiam!</p>
-                </div>
-                <!-- ticket details  -->
-
-
-                <div class="grid grid-cols-3 items-center">
-                    <!-- answered div start  -->
-                    <div class='text-center'>
-                        <textarea name="" id="" class="w-full h-[100px] rounded-lg p-2"></textarea>
-                        <button class="btn bg-green-600">Answered</button>
+                <!-- action buttons start  -->
+                <div class="py-10">
+                    <!-- priority and statas div start  -->
+                    <div  class="flex justify-between items-center text-[#009688]">
+                        <p>Status: <span id="actionTicketStatus" class="font-bold text-red-600">Open</span></p>
+                        <p>Priority: <span id="actionTicketPriority" class="font-bold text-yellow-500">High</span></p>
                     </div>
-                    <!-- answered div start  -->
+                    <!-- priority and statas div start  -->
 
-                    <!-- in_progress div start  -->
-                    <div class='text-center'>
-                        <p class="text-gray-500 h-[100px]">I have to word in later</p>
-                        <button class="btn bg-blue-600">In-Progress</button>
+                    <!-- ticket details  -->
+                    <div class="my-5 text-white">
+                        <p class="text-xl text-white underline">Ticket Description: </p>
+                        <p class="m-3 " id="actionTicketDescription">Offline</p>
                     </div>
-                    <!-- in_progress div start  -->
+                    <!-- ticket details  -->
 
-                    <!-- close div start  -->
-                    <div class='text-center'>
-                        <p class="text-gray-500 h-[100px]">I close this task</p>
-                        <button class="btn bg-red-600">In-Progress</button>
+                    <!-- three buttons start  -->
+                    <div class="grid grid-cols-3 items-center">
+                        <!-- answered div start  -->
+                        <div class='text-center'>
+                            <textarea name="" id="" class="w-full h-[100px] rounded-lg p-2"></textarea>
+                            <button onclick="answerTicket()" class="btn bg-green-600">Answered</button>
+                        </div>
+                        <!-- answered div start  -->
+
+                        <!-- in_progress div start  -->
+                        <div class='text-center'>
+                            <p class="text-gray-500 h-[100px]">I have to word in later</p>
+                            <button onclick="inProgressTicket()" class="btn bg-blue-600">In-Progress</button>
+                        </div>
+                        <!-- in_progress div start  -->
+
+                        <!-- close div start  -->
+                        <div class='text-center'>
+                            <p class="text-gray-500 h-[100px]">I close this task</p>
+                            <button onclick="closeTicket()" class="btn bg-red-600">Close</button>
+                        </div>
+                        <!-- close div start  -->
                     </div>
-                    <!-- close div start  -->
+                    <!-- three buttons end-->
+                </div>
+                <!-- action buttons end -->
+
+                <div  class="absolute -top-4 -right-2 ">
+                    <span onclick="actionContainerClose()" class="w-[30px] h-[30px] bg-red-600 flex items-center justify-center rounded-full cursor-pointer text-white"><i class="fa-solid fa-xmark"></i></span>
+                    
                 </div>
             </div>
-
-            <div class="modal-action absolute -top-7 -right-2 ">
-                <label for="ticketActionModal">
-                    <span class="w-[30px] h-[30px] bg-red-600 flex items-center justify-center rounded-full cursor-pointer text-white"><i class="fa-solid fa-xmark"></i></span>
-                </label>
-            </div>
-        </div>
-        
-            </div>
+            <!-- ticket action modal start  -->
         </section>
         
+
+       
     </section>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="./script/utilitys.js"></script>
