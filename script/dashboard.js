@@ -21,23 +21,58 @@ const totalCount = (array, proparty, value) => {
 	return totalCount;
 };
 
+
+// set innertext of Total Number in open / inprogress/close/answered
+const setValueToTotalNumberOfTicket = (
+    inProgressArray,
+	countTicket,
+    newTicketNum,
+    highPriorityTicketNum
+) => {
+	const countTicketElement = getELement(countTicket);
+	const newTicketNumElement = getELement(newTicketNum);
+	const highPriorityTicketNumElement = getELement(highPriorityTicketNum);
+
+	// get toalheight priority array
+	const totalHeighPriority = totalCount(
+		inProgressArray,
+		"priority",
+		'High'
+	);
+
+	countTicketElement.innerText = inProgressArray.length
+		? inProgressArray.length
+		: 0;
+	newTicketNumElement.innerText = inProgressArray.length
+		? inProgressArray.length
+		: 0;
+	highPriorityTicketNumElement.innerText = totalHeighPriority.length
+		? totalHeighPriority.length
+		: 0;
+};
+
+
 // show total open ticket 
 function showOpenNumber(openArray) {
-    const newOpenTicketNum = getELement("newOpenTicketNum");
-    const countOpenTicket = getELement("countOpenTicket");
-    const highPriorityOpenTicketNum = getELement("highPriorityOpenTicketNum");
-
-    // get toalheight priority array 
-    const totalHeighPriority = totalCount(openArray, 'priority', 'High');
-    
-    
-    countOpenTicket.innerText = openArray.length ? openArray.length : "0";
-    newOpenTicketNum.innerText = openArray.length ? openArray.length : '0';
-    highPriorityOpenTicketNum.innerText = totalHeighPriority.length
-		? totalHeighPriority.length
-		: "0";
-
+    setValueToTotalNumberOfTicket(
+		openArray,
+		"countOpenTicket",
+		"newOpenTicketNum",
+        "highPriorityOpenTicketNum"
+	);
 }
+
+// show total in progress 
+function showInProgressNumber(inProgressArray) {
+	setValueToTotalNumberOfTicket(
+		inProgressArray,
+		"countInProgressTicket",
+		"newInProgressTicketNum",
+		"highPriorityInProgressTicketNum",
+		"High"
+	);
+}
+
 
 // display all ticket in table
 const displayTickets = () =>{
@@ -49,6 +84,14 @@ const displayTickets = () =>{
         // set array to open array to show open ticket 
         openArray = allTickets.filter(ticket => ticket.status === 'Open');
         showOpenNumber(openArray);
+
+        // set array to in progress array to show inprogress ticket
+        answeredArray = allTickets.filter(
+			ticket => ticket.status === "In Progress"
+        );
+        showInProgressNumber(answeredArray);
+
+
         let count = 1;
         allTickets.forEach(ticket => {
             const {
@@ -64,7 +107,7 @@ const displayTickets = () =>{
 				countTic,
 			} = ticket;
             allTicketsTbody.innerHTML += `<tr class="py-10  text-white">
-                                    <td>${count}</td> 
+                                    <td class='ticketNumber'>${count}</td> 
                                     <td>${ticketIssueTime}</td> 
                                     <td>${ticketSubject}</td> 
                                     <td>${userName}</td>  
@@ -107,16 +150,14 @@ const goToCreatTicket = () => {
 }
 
 
-
 // logout function
 const logOutUser = () => {
     removeLocalStrageValue("userInfo");
     location.replace('../login.html');
 }
 
-
+// set the array which one is clicket by action
 const actionUserInfo = [];
-
 // actionOpen
 const actionContainerOpen = countTic => {
 	
@@ -140,9 +181,15 @@ const actionContainerOpen = countTic => {
     // set actionTicketDescription  value 
     const actionTicketDescription = getELement("actionTicketDescription");
     actionTicketDescription.innerText = clickedTicket.ticketDescription;
+
+    const ticketNo = getELement("ticketNo");
+    ticketNo.innerText =
+		event.target.parentNode.parentNode.parentNode.querySelector(
+			".ticketNumber"
+		).innerText;
+    
+
 };
-
-
 
 // action close 
 const actionContainerClose = () => {
@@ -150,28 +197,36 @@ const actionContainerClose = () => {
 	actionContainer.classList.add("hidden");
 }
 
-// inProgressTicket set 
-const inProgressTicket = () => {
-    const allTickets = getLocalStorageValue('ticket');
-    console.log(allTickets);
-    let getRestArray = allTickets.filter(
+// change status value 
+const changeStatusValue = (value) => {
+    const allTickets = getLocalStorageValue("ticket");
+	let getRestArray = allTickets.filter(
 		ticket => ticket.countTic !== actionUserInfo[0].countTic
 	);
-    actionUserInfo[0].status = "In Progress";
-    console.log(actionUserInfo[0]);
+	actionUserInfo[0].status = value;
 
-    console.log(getRestArray);
+	getRestArray = [...getRestArray, actionUserInfo[0]];
+	getRestArray.sort((a, b) => {
+		return a.countTic < b.countTic ? 1 : -1;
+	});
 
-    getRestArray = [...getRestArray, actionUserInfo[0]];
+	setLocalStorageValue("ticket", getRestArray);
 
-    getRestArray.sort((a, b) => {
-        return a.countTic < b.countTic ? 1 : -1;
-    })
-    
-    setLocalStorageValue("ticket", getRestArray);
-    
-    location.replace('../dashboard.html')
-
-
+	location.replace("../dashboard.html");
 }
 
+// inProgressTicket set 
+const inProgressTicket = () => {
+   changeStatusValue("In Progress");
+
+}
+// closeTicket ‍set
+const closeTicket = () => {
+    changeStatusValue('Close');
+}
+
+
+// answerTicket set
+const answerTicket = () => {
+    changeStatusValue('Answered');
+}
