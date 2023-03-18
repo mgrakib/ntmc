@@ -73,7 +73,7 @@ const displayTickets = () =>{
                                     <td>${projectName}</td> 
                                     <td>${priority}</td> 
                                     <td>${status}</td> 
-                                    <td><i onclick='action(${count})' class='cursor-pointer fa-regular fa-pen-to-square'></i></td> 
+                                    <td><label for="ticketActionModal"><i for="ticketActionModal" onclick='action(${count})' class='cursor-pointer fa-regular fa-pen-to-square'></i></label></td> 
                                     </tr>`;
             count++;
             

@@ -263,6 +263,80 @@
             <!-- show all tickets end -->
         </main>
         <!-- main section end -->
+
+
+        <!-- ticket action start  -->
+        <section>
+            <!-- The button to open modal -->
+            
+
+             <!-- Put this part before -->
+            <input type="checkbox" id="ticketActionModal" class="modal-toggle" />
+            <div class="modal w-full">
+            <!-- <div class=" w-[900px] bg-red-500">
+                <div>
+
+                </div>
+
+                <div class="modal-action">
+                <label for="ticketActionModal" class="btn">Yay!</label>
+                </div>
+            </div> -->
+            
+                <!-- ticket action start  -->
+        <div class="w-[900px] p-10 rounded-md bg-[#060818] shadow-[0_0_10px_10px_rgba(0,0,0,.7)] relative">
+            <h1 class="text-3xl text-white font-bold text-center">PBI Support HUB</h1>
+            <p class="text-center text-2xl text-white my-3">Ticket No: 0<span>1</span></p>
+
+            <div class="py-10">
+                <!-- priority and statas div start  -->
+                <div  class="flex justify-between items-center text-[#009688]">
+                    <p>Status: <span class="font-bold text-red-600">Open</span></p>
+                    <p>Priority: <span class="font-bold text-yellow-500">High</span></p>
+                </div>
+                <!-- priority and statas div start  -->
+
+                <!-- ticket details  -->
+                <div class="my-5 text-white">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero, aperiam!</p>
+                </div>
+                <!-- ticket details  -->
+
+
+                <div class="grid grid-cols-3 items-center">
+                    <!-- answered div start  -->
+                    <div class='text-center'>
+                        <textarea name="" id="" class="w-full h-[100px] rounded-lg p-2"></textarea>
+                        <button class="btn bg-green-600">Answered</button>
+                    </div>
+                    <!-- answered div start  -->
+
+                    <!-- in_progress div start  -->
+                    <div class='text-center'>
+                        <p class="text-gray-500 h-[100px]">I have to word in later</p>
+                        <button class="btn bg-blue-600">In-Progress</button>
+                    </div>
+                    <!-- in_progress div start  -->
+
+                    <!-- close div start  -->
+                    <div class='text-center'>
+                        <p class="text-gray-500 h-[100px]">I close this task</p>
+                        <button class="btn bg-red-600">In-Progress</button>
+                    </div>
+                    <!-- close div start  -->
+                </div>
+            </div>
+
+            <div class="modal-action absolute -top-7 -right-2 ">
+                <label for="ticketActionModal">
+                    <span class="w-[30px] h-[30px] bg-red-600 flex items-center justify-center rounded-full cursor-pointer text-white"><i class="fa-solid fa-xmark"></i></span>
+                </label>
+            </div>
+        </div>
+        
+            </div>
+        </section>
+        
     </section>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="./script/utilitys.js"></script>
