@@ -23,8 +23,10 @@ const loginFuncation = () => {
 	
     // get localstorage value
     const localStorageValue = getLocalStorageValue("registationInfo");
-    
+
+    // this variable contian current user info who login 
     let userInfo;
+    
     if (localStorageValue) {
         userInfo = localStorageValue.find(
 			user => Object.keys(user)[0] === loginUserName

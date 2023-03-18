@@ -1,5 +1,5 @@
-const userInfo = [];
-let countTic = 0;
+let userInfo = [];
+
 const creatTicket = () => {
     const nowDate = new Date();
 	const projectName = getELement("projectName").value;
@@ -11,6 +11,13 @@ const creatTicket = () => {
 	const userId = Object.keys(userInfo[0])[0];
 	const userName = userInfo[0][userId].userFullName;
 
+	let countTic = 0;
+	let creatTicketToLocalStorage = getLocalStorageValue("ticket");
+	if (creatTicketToLocalStorage) {
+		countTic = creatTicketToLocalStorage.length + 1;
+	} else {
+		countTic = 1;
+	}
 	
     const ticketObject = {
         countTic,
@@ -25,7 +32,7 @@ const creatTicket = () => {
 		status: 'Open'
     };
     
-    let creatTicketToLocalStorage = getLocalStorageValue('ticket');
+    
 
     if (creatTicketToLocalStorage) {
        localStorage.setItem(

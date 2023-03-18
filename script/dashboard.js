@@ -1,16 +1,25 @@
-let userArray;
+
 let getUserInfo;
+
+let openArray;
+let answeredArray;
+let inProgressArray;
+let closeArray;
+
 const localStorageValue = getLocalStorageValue("registationInfo");
 const userDashboardName = getELement("userDashboardName");
+const noDataMessage = getELement("noDataMessage");
+
+// this function set current user info in localStorage call from login
 const setValue = (value) => {
-    userArray = value;
-    setLocalStorageValue("userInfo", [userArray]);
-    
+    setLocalStorageValue("userInfo", [value]);
 }
 
+// display all ticket in table
 const displayTickets = () =>{
     const allTickets = getLocalStorageValue('ticket');
     if (allTickets) {
+        noDataMessage.classList.add("hidden");
         const allTicketsTbody = getELement("allTicketsTbody");
 
         allTickets.forEach(ticket => {
@@ -43,18 +52,18 @@ const displayTickets = () =>{
                                     </tr>`;
         });
         
+    } else {
+        noDataMessage.classList.remove("hidden");
     }
 }
-
 
 const getUserData = () => {
     getUserInfo = getLocalStorageValue("userInfo");
     if (getUserInfo) {
         const key = Object?.keys(getUserInfo[0])[0];
         const userDashboardName = getELement("userDashboardName");
-		userDashboardName.innerText = getUserInfo[0][key].userFullName;
-        
-        userInfo.push(getUserInfo[0]);        
+        userDashboardName.innerText = getUserInfo[0][key].userFullName;     
+        userInfo = [...getUserInfo];
     }
     // console.log(getUserInfo[0][key].userFullName);
     
