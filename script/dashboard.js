@@ -185,7 +185,7 @@ const goToCreatTicket = () => {
 // logout function
 const logOutUser = () => {
     removeLocalStrageValue("userInfo");
-    location.replace('../login.html');
+    location.replace("../index.html");
 }
 
 // set the array which one is clicket by action

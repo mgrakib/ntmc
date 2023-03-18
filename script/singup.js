@@ -67,5 +67,5 @@ const registationSubmit = () => {
 
 
 const goToSingIn = () => {
-	location.href = '../login.html'
+	location.href = '../index.html'
 }
