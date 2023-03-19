@@ -71,17 +71,23 @@ let showPass = false;
 const showPassword = ()=>{
     const eyeBtn = getELement('eyeBtn');
     const loginPassword = getELement('loginPassword');
-
+    const hideTedi = getELement('hideTedi');
+    const showTedi = getELement('showTedi');
+    
     if (!showPass) {
         showPass = true;
         eyeBtn.classList.remove('fa-eye-slash')
         eyeBtn.classList.add('fa-eye');
         loginPassword.type = 'text';
+        hideTedi.classList.add('hidden');
+        showTedi.classList.remove('hidden');
     } else {
         showPass = false;
 		eyeBtn.classList.add("fa-eye-slash");
         eyeBtn.classList.remove("fa-eye");
         loginPassword.type = "password";
+        hideTedi.classList.remove("hidden");
+		showTedi.classList.add("hidden");
     }
     
 }
