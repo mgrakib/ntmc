@@ -8,9 +8,8 @@ const findUserIdToChangePassword = () => {
     if (!targetUser) {
         alert(`Sorry We dont find "${userIdField}" account`)
     } else {
-        console.log(targetUser);
-        
-        
+        const newPasswordSection = getELement("newPasswordSection");
+		newPasswordSection.classList.remove("hidden");
     }
     
 }
