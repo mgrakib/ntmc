@@ -66,3 +66,22 @@ const goToSingUp = () => {
 const goToForgetPassword = () => {
     location.href = "../forgetPassword.html";
 }
+
+let showPass = false;
+const showPassword = ()=>{
+    const eyeBtn = getELement('eyeBtn');
+    const loginPassword = getELement('loginPassword');
+
+    if (!showPass) {
+        showPass = true;
+        eyeBtn.classList.remove('fa-eye-slash')
+        eyeBtn.classList.add('fa-eye');
+        loginPassword.type = 'text';
+    } else {
+        showPass = false;
+		eyeBtn.classList.add("fa-eye-slash");
+        eyeBtn.classList.remove("fa-eye");
+        loginPassword.type = "password";
+    }
+    
+}
