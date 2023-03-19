@@ -94,7 +94,9 @@ function showCloseNumber(CloseArray) {
 	);
 }
 
-
+const sortByNumber = () => {
+    displayTickets();
+}
 
 // display all ticket in table
 const displayTickets = () =>{
@@ -103,8 +105,20 @@ const displayTickets = () =>{
         noDataMessage.classList.add("hidden");
         const allTicketsTbody = getELement("allTicketsTbody");
         allTicketsTbody.innerHTML = '';
-        // set array to open array to show open ticket 
-        openArray = allTickets.filter(ticket => ticket.status === 'Open');
+
+        // get value how many have to show
+        let showticket = [];
+        const numberOfResult = getELement("numberOfResult").value;
+        if (allTickets.length >= numberOfResult) {
+            showticket = [...allTickets];
+            console.log(showticket);
+            
+            showticket.length = numberOfResult;
+        } else {
+            showticket = [...allTickets];
+        }
+			// set array to open array to show open ticket
+		openArray = allTickets.filter(ticket => ticket.status === "Open");
         showOpenNumber(openArray);
 
          // set array answeredArray array to show inprogress ticket
@@ -125,8 +139,8 @@ const displayTickets = () =>{
 
 
         let count = 1;
-        allTickets.forEach(ticket => {
-            const {
+        showticket.forEach(ticket => {
+			const {
 				ticketIssueTime,
 				ticketSubject,
 				userName,
@@ -138,7 +152,7 @@ const displayTickets = () =>{
 				ticketDescription,
 				countTic,
 			} = ticket;
-            allTicketsTbody.innerHTML += `<tr class="py-10  text-white">
+			allTicketsTbody.innerHTML += `<tr class="py-10  text-white">
                                     <td class='ticketNumber'>${count}</td> 
                                     <td>${ticketIssueTime}</td> 
                                     <td>${ticketSubject}</td> 
@@ -150,9 +164,8 @@ const displayTickets = () =>{
                                     <td>${status}</td> 
                                     <td><label for="ticketActionModal"><i for="ticketActionModal" onclick='actionContainerOpen(${countTic})' class='cursor-pointer fa-regular fa-pen-to-square'></i></label></td> 
                                     </tr>`;
-            count++;
-            
-        });
+			count++;
+		});
         
     } else {
         noDataMessage.classList.remove("hidden");
