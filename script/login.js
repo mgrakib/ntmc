@@ -60,6 +60,9 @@ const loginFuncation = () => {
 }
 
 const goToSingUp = () => {
-    location.href =  '../singup.html'
-    
+    location.href =  '../singup.html'  
+}
+
+const goToForgetPassword = () => {
+    location.href = "../forgetPassword.html";
 }
