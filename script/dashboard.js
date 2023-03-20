@@ -137,12 +137,15 @@ const displayTickets = () =>{
             let newVAlue = [...allTickets];
 
 			if (newVAlue.length <= totalShowNumber * nextValue) {
-				
+				document.getElementById("nextBtn").style.color = "gray";
 			document.getElementById("nextBtn").disabled = true
 				
 			} else if (nextValue === 1) {
-				document.getElementById("previouseBtn").disabled =  true;
+				document.getElementById("previouseBtn").disabled = true;
+				document.getElementById("previouseBtn").style.color = 'gray';
 			} else {
+				document.getElementById("nextBtn").style.color = "white";
+				document.getElementById("previouseBtn").style.color = "white";
 				document.getElementById("nextBtn").disabled = false;
 				document.getElementById("previouseBtn").disabled = false;
 			}
