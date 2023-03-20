@@ -112,11 +112,7 @@ const nextNumberShow = () => {
 }
 
 const previousNumberShow = () => {
-	if (nextValue>0) {
-		nextValue--;	
-	} else {
-		alert('you have no')
-	}
+	nextValue--;
 	
 	displayTickets();
 }
@@ -139,12 +135,21 @@ const displayTickets = () =>{
 		
         if (allTickets.length >= totalShowNumber) {
             let newVAlue = [...allTickets];
-			// showticket = newVAlue.slice(totalShowNumber-totalShowNumber , totalShowNumber);
-			
-			showticket = newVAlue.slice(
-				(totalShowNumber * nextValue) - totalShowNumber,
-				(totalShowNumber* nextValue)
-			);
+
+			if (newVAlue.length <= totalShowNumber * nextValue) {
+				
+			document.getElementById("nextBtn").disabled = true
+				
+			} else if (nextValue === 1) {
+				document.getElementById("previouseBtn").disabled =  true;
+			} else {
+				document.getElementById("nextBtn").disabled = false;
+				document.getElementById("previouseBtn").disabled = false;
+			}
+				showticket = newVAlue.slice(
+					totalShowNumber * nextValue - totalShowNumber,
+					totalShowNumber * nextValue
+				);
 
 			
 		} else {
