@@ -9,6 +9,7 @@ let closeArray;
 const localStorageValue = getLocalStorageValue("registationInfo");
 const userDashboardName = getELement("userDashboardName");
 const noDataMessage = getELement("noDataMessage");
+const nextPreviousBtnContainer = getELement("nextPreviousBtnContainer");
 
 // this function set current user info in localStorage call from login
 const setValue = (value) => {
@@ -121,7 +122,8 @@ const previousNumberShow = () => {
 const displayTickets = () =>{
     const allTickets = getLocalStorageValue('ticket');
     if (allTickets) {
-        noDataMessage.classList.add("hidden");
+		noDataMessage.classList.add("hidden");
+		nextPreviousBtnContainer.classList.remove("hidden");
         const allTicketsTbody = getELement("allTicketsTbody");
         allTicketsTbody.innerHTML = '';
 
@@ -138,7 +140,7 @@ const displayTickets = () =>{
 
 			if (newVAlue.length <= totalShowNumber * nextValue) {
 				document.getElementById("nextBtn").style.color = "gray";
-			document.getElementById("nextBtn").disabled = true
+				document.getElementById("nextBtn").disabled = true
 				
 			} else if (nextValue === 1) {
 				document.getElementById("previouseBtn").disabled = true;
@@ -157,7 +159,6 @@ const displayTickets = () =>{
 			
 		} else {
 			const nextBtn = getELement("nextBtn");
-			console.log(nextBtn);
 			
             showticket = [...allTickets];
         }
@@ -212,7 +213,9 @@ const displayTickets = () =>{
 		});
         
     } else {
-        noDataMessage.classList.remove("hidden");
+		noDataMessage.classList.remove("hidden");
+		nextPreviousBtnContainer.classList.add("hidden");
+		
     }
 }
 
