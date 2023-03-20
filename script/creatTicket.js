@@ -50,5 +50,21 @@ const creatTicket = () => {
 	getELement("ticketSubject").value = '';
 	getELement("ticketDescription").value = '';
 
+
+	const allTickets = getLocalStorageValue("ticket");
+	let number = 1;
+	let changeCountIf = allTickets.map(ticket => {
+		ticket.countTic = number;
+		number++;
+		return ticket;
+	}
+		
+	);
+	// console.log(changeCountIf);
+	setLocalStorageValue("ticket", changeCountIf);
+	
+
+
+	
 	location.href = "../dashboard.html";
 }

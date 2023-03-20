@@ -95,7 +95,30 @@ function showCloseNumber(CloseArray) {
 }
 
 const sortByNumber = () => {
+	const numberOfResult = getELement("numberOfResult").value;
+
+	setLocalStorageValue("totalNumberSHow", numberOfResult);
+	location.reload()
+	console.log('btnclick');
+	
+	
     displayTickets();
+}
+
+let nextValue = 1;
+const nextNumberShow = () => {
+	nextValue++;
+	displayTickets();
+}
+
+const previousNumberShow = () => {
+	if (nextValue>0) {
+		nextValue--;	
+	} else {
+		alert('you have no')
+	}
+	
+	displayTickets();
 }
 
 // display all ticket in table
@@ -108,13 +131,26 @@ const displayTickets = () =>{
 
         // get value how many have to show
         let showticket = [];
-        const numberOfResult = getELement("numberOfResult").value;
-        if (allTickets.length >= numberOfResult) {
-            showticket = [...allTickets];
-            console.log(showticket);
-            
-            showticket.length = numberOfResult;
-        } else {
+		
+
+		const totalShowNumber = getLocalStorageValue("totalNumberSHow");
+		console.log(totalShowNumber);
+		getELement("numberOfResult").value = totalShowNumber;
+		
+        if (allTickets.length >= totalShowNumber) {
+            let newVAlue = [...allTickets];
+			// showticket = newVAlue.slice(totalShowNumber-totalShowNumber , totalShowNumber);
+			
+			showticket = newVAlue.slice(
+				(totalShowNumber * nextValue) - totalShowNumber,
+				(totalShowNumber* nextValue)
+			);
+
+			
+		} else {
+			const nextBtn = getELement("nextBtn");
+			console.log(nextBtn);
+			
             showticket = [...allTickets];
         }
 			// set array to open array to show open ticket
@@ -153,7 +189,7 @@ const displayTickets = () =>{
 				countTic,
 			} = ticket;
 			allTicketsTbody.innerHTML += `<tr class="py-10  text-white">
-                                    <td class='ticketNumber'>${count}</td> 
+                                    <td class='ticketNumber'>${countTic}</td> 
                                     <td>${ticketIssueTime}</td> 
                                     <td>${ticketSubject}</td> 
                                     <td>${userName}</td>  
